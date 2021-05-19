@@ -14,23 +14,21 @@
 
 		<button onclick="selectOne()">Click me</button>
 
+		<button onclick="selectAll()">Click me</button>
+
 		<script>
 			function selectOne() {
 				document.getElementById("oil").checked = true;
 			}
+
+			function selectAll() {
+				const checkValues = ["oil", "whipers", "cabin"];
+				//document.getElementById(checkValues[1]).checked = true;
+
+				for (var i = 0; i < checkValues.length; i++) {
+					document.getElementById(checkValues[i]).checked = true;
+				}
+			}
 		</script>
 	</body>
 </html>
-
-<!--
-get single item:
-
-    button clicked
-        check box function is called
-
-    checkBox()
-        get element by id
-            element is now checked
-
-
--->
