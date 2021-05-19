@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h1>Demo Dealer Socket form</h1>
+
+		<form action="/action_page.php">
+			<input type="checkbox" id="oil" name="oil" value="oil" />
+			<label for="oil"> Oil Change</label><br />
+			<input type="checkbox" id="whipers" name="whipers" value="whipers" />
+			<label for="whipers"> Whipers</label><br />
+			<input type="checkbox" id="cabin" name="cabin" value="cabin air" />
+			<label for="cabin"> Cabin Air</label><br /><br />
+		</form>
+
+		<button onclick="selectThatButton()">Click me</button>
+
+		<script>
+			function myFunction() {
+				document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+			}
+		</script>
+	</body>
+</html>
+
+<!--
+get single item:
+
+    button clicked
+        check box function is called
+
+    checkBox()
+        get element by id
+            element is now checked
+
+
+-->
