@@ -50,6 +50,25 @@
 					document.getElementById(checkBadValues[i]).checked = true;
 				}
 			}
+
+			function selectSome(selectedGoodValues) {
+				const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
+				//const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
+
+				//NOTE: Fix this loop to take other values
+				for (var i = 0; i < checkGoodValues.length; i++) {
+					//if (basicValues.includes(items[i].value))
+					console.log(selectedGoodValues[i]);
+				}
+
+				// for (var i = 0; i < checkGoodValues.length; i++) {
+				// 	if ((document.getElementById(checkBadValues[i]).checked = true)) {
+				// 		document.getElementById(checkBadValues[i]).checked = false;
+				// 	}
+				// 	console.log("wut");
+				// 	document.getElementById(checkGoodValues[i]).checked = true;
+				// }
+			}
 		</script>
 
 		<script
@@ -61,15 +80,15 @@
 				key: "3707a2c791104a5a428ff564ba5a7a162e956eca572e1d8b807a3e2338fdd0dc/stage",
 				onCommand: function (commandData) {
 					if (commandData.command === "everythingIsFine") {
-						selectAllGood();
+						console.log(commandData.theList);
+						const checkGoodValues = commandData.theList;
+						selectAllGood(checkGoodValues);
 					}
 					if (commandData.command === "everythingIsBroken") {
 						selectAllBad();
 					}
 					if (commandData.command === "testing") {
-						console.log(commandData.theList);
-						const checkGoodValues = commandData.theList;
-						selectAllGood(checkGoodValues);
+						selectSome(commandData.theList);
 					}
 				},
 				rootEl: document.getElementById("alan-btn"),
