@@ -17,9 +17,7 @@
 		</form>
 
 		<button onclick="selectOne()">Select one</button>
-
 		<button onclick="selectAllGood()">Select all good</button>
-
 		<button onclick="selectAllBad()">Select all bad</button>
 
 		<script>
@@ -53,21 +51,21 @@
 
 			function selectSome(selectedGoodValues) {
 				const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-				//const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
+				const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
 
-				//NOTE: Fix this loop to take other values
 				for (var i = 0; i < checkGoodValues.length; i++) {
-					//if (basicValues.includes(items[i].value))
-					console.log(selectedGoodValues[i]);
+					console.log("selectedGodValues: " + selectedGoodValues[i]);
+					var found = undefined;
+					found = checkGoodValues.find(
+						(element) => element === selectedGoodValues[i]
+					);
+					if (found != undefined) {
+						if ((document.getElementById(checkBadValues[i]).checked = true)) {
+							document.getElementById(checkBadValues[i]).checked = false;
+						}
+						document.getElementById(found).checked = true;
+					}
 				}
-
-				// for (var i = 0; i < checkGoodValues.length; i++) {
-				// 	if ((document.getElementById(checkBadValues[i]).checked = true)) {
-				// 		document.getElementById(checkBadValues[i]).checked = false;
-				// 	}
-				// 	console.log("wut");
-				// 	document.getElementById(checkGoodValues[i]).checked = true;
-				// }
 			}
 		</script>
 
