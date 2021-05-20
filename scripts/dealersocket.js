@@ -10,26 +10,29 @@ onCreateProject(() => {
 function findGoodItems(items) {
 	console.log("findGoodItems: " + items);
 	let pushedGoodValues = [];
-	for (var i = 0; i < basicValues.length - 1; i++) {
+	for (var i = 0; i < basicValues.length; i++) {
 		if (basicValues.includes(items[i].value)) {
 			//console.log(basicValues.findIndex(items[i].value))
 			const indexHere = basicValues.findIndex(
 				(goodValue) => goodValue === items[i].value
 			);
-			console.log(indexHere);
+			console.log("indexHERE: " + indexHere);
 			pushedGoodValues.push(checkGoodValues[indexHere]);
 		}
 	}
 	return pushedGoodValues;
 }
 
-intent(`$(B p:ALLVALUES) and $(B p:ALLVALUES|) are good`, (p) => {
-	//console.log("Good values: " + p.B_[1]);
-	let foundGoodValues = findGoodItems(p.B_);
-	console.log("foundGoodValues DONE: " + foundGoodValues);
-	p.play({ command: "testing", theList: foundGoodValues });
-	p.play("Sending this");
-});
+intent(
+	`$(B p:ALLVALUES) $(B p:ALLVALUES) and $(B p:ALLVALUES|) are good`,
+	(p) => {
+		//console.log("Good values: " + p.B_[1]);
+		let foundGoodValues = findGoodItems(p.B_);
+		console.log("foundGoodValues DONE: " + foundGoodValues);
+		p.play({ command: "testing", theList: foundGoodValues });
+		p.play("Sending this");
+	}
+);
 
 intent("Everything is fine", (p) => {
 	p.play({ command: "everythingIsFine", theList: checkGoodValues });
