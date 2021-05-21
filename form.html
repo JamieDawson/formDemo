@@ -19,6 +19,7 @@
 		<button onclick="selectOne()">Select one</button>
 		<button onclick="selectAllGood()">Select all good</button>
 		<button onclick="selectAllBad()">Select all bad</button>
+		<button onclick="goodAndBad()">Select good and bad option</button>
 
 		<script>
 			function selectOne() {
@@ -33,7 +34,6 @@
 					if ((document.getElementById(checkBadValues[i]).checked = true)) {
 						document.getElementById(checkBadValues[i]).checked = false;
 					}
-					console.log("wut");
 					document.getElementById(checkGoodValues[i]).checked = true;
 				}
 			}
@@ -54,11 +54,7 @@
 				checkGoodValues,
 				checkBadValues
 			) {
-				//const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-				//const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
-
 				for (var i = 0; i < checkGoodValues.length; i++) {
-					console.log("selectedGodValues: " + selectedGoodValues[i]);
 					var found = undefined;
 					found = checkGoodValues.find(
 						(element) => element === selectedGoodValues[i]
@@ -67,6 +63,35 @@
 						if ((document.getElementById(checkBadValues[i]).checked = true)) {
 							document.getElementById(checkBadValues[i]).checked = false;
 						}
+						document.getElementById(found).checked = true;
+					}
+				}
+			}
+
+			function goodAndBad() {
+				let TselectedGoodValues = ["oil-good", "whipers-good"];
+				let TselectedBadValues = ["cabin-bad"];
+				let TcheckGoodValues = ["oil-good", "whipers-good", "cabin-good"];
+				let TcheckBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
+				for (var i = 0; i < TcheckGoodValues.length; i++) {
+					var found = undefined;
+					found = TcheckGoodValues.find(
+						(element) => element === TselectedGoodValues[i]
+					);
+					if (found != undefined) {
+						if ((document.getElementById(TcheckBadValues[i]).checked = true)) {
+							document.getElementById(TcheckBadValues[i]).checked = false;
+						}
+						document.getElementById(found).checked = true;
+					}
+				}
+
+				for (var i = 0; i < TcheckBadValues.length; i++) {
+					var found = undefined;
+					found = TcheckBadValues.find(
+						(element) => element === TselectedBadValues[i]
+					);
+					if (found != undefined) {
 						document.getElementById(found).checked = true;
 					}
 				}
