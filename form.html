@@ -49,9 +49,13 @@
 				}
 			}
 
-			function selectSome(selectedGoodValues) {
-				const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-				const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
+			function selectSomeGood(
+				selectedGoodValues,
+				checkGoodValues,
+				checkBadValues
+			) {
+				//const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
+				//const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
 
 				for (var i = 0; i < checkGoodValues.length; i++) {
 					console.log("selectedGodValues: " + selectedGoodValues[i]);
@@ -85,8 +89,12 @@
 					if (commandData.command === "everythingIsBroken") {
 						selectAllBad();
 					}
-					if (commandData.command === "testing") {
-						selectSome(commandData.theList);
+					if (commandData.command === "sendingSomeGood") {
+						selectSomeGood(
+							commandData.theList,
+							commandData.checkGoodValues,
+							commandData.checkBadValues
+						);
 					}
 				},
 				rootEl: document.getElementById("alan-btn"),

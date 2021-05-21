@@ -29,7 +29,12 @@ intent(
 		//console.log("Good values: " + p.B_[1]);
 		let foundGoodValues = findGoodItems(p.B_);
 		console.log("foundGoodValues DONE: " + foundGoodValues);
-		p.play({ command: "testing", theList: foundGoodValues });
+		p.play({
+			command: "sendingSomeGood",
+			theList: foundGoodValues,
+			checkGoodValues: checkGoodValues,
+			checkBadValues: checkBadValues,
+		});
 		p.play("Sending this");
 	}
 );
