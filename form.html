@@ -124,6 +124,19 @@
 				},
 				rootEl: document.getElementById("alan-btn"),
 			});
+			var initialData;
+			var statuses;
+			var inspectionState;
+			alanBtnInstance.callProjectApi("getInitialData", {}, (err, res) => {
+				if (err) {
+					console.error(`getInitialData error:`, err);
+					return;
+				}
+				initialData = res;
+				statuses = initialData.statuses;
+				inspectionState = initialData.inspectionDefaultState;
+				console.log(`initialData: ${JSON.stringify(initialData)}`);
+			});
 		</script>
 	</body>
 </html>
