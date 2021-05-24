@@ -3,8 +3,33 @@
 	<div class="alan-btn"></div>
 	<body>
 		<h1>Demo Dealer Socket form</h1>
+		<div id="main"></div>
+		<table>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Age</th>
+				<th>Age</th>
+				<th>Age</th>
+			</tr>
+			<tr>
+				<td id="ok-element" section="Oil" element="Filter">|X|</td>
+				<td>| |</td>
+				<td>| |</td>
+				<td>Smith</td>
+				<td>50</td>
+			</tr>
+			<tr>
+				<td>| |</td>
+				<td>| |</td>
+				<td>| |</td>
+				<td>Eve</td>
+				<td>Jackson</td>
+				<td>94</td>
+			</tr>
+		</table>
 
-		<form>
+		<!-- <form>
 			<input type="checkbox" id="oil-good" name="oil" value="oil" />
 			<input type="checkbox" id="oil-bad" name="oil" value="oil" />
 			<label for="oil"> Oil Change</label><br />
@@ -14,129 +39,95 @@
 			<input type="checkbox" id="cabin-good" name="cabin" value="cabin air" />
 			<input type="checkbox" id="cabin-bad" name="cabin" value="cabin air" />
 			<label for="cabin"> Cabin Air</label><br /><br />
-		</form>
+		</form> -->
 
-		<button onclick="selectOne()">Select one</button>
+		<!-- <button onclick="selectOne()">Select one</button>
 		<button onclick="selectAllGood()">Select all good</button>
 		<button onclick="selectAllBad()">Select all bad</button>
-		<button onclick="goodAndBad()">Select good and bad option</button>
+		<button onclick="goodAndBad()">Select good and bad option</button> -->
 
 		<script>
-			function selectOne() {
-				document.getElementById("oil-good").checked = true;
-			}
+			// function selectOne() {
+			// 	document.getElementById("oil-good").checked = true;
+			// }
 
-			function selectAllGood(checkGoodValues) {
-				//const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-				const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
+			// function selectAllGood(checkGoodValues) {
+			// 	//const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
+			// 	const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
 
-				for (var i = 0; i < checkGoodValues.length; i++) {
-					if ((document.getElementById(checkBadValues[i]).checked = true)) {
-						document.getElementById(checkBadValues[i]).checked = false;
-					}
-					document.getElementById(checkGoodValues[i]).checked = true;
-				}
-			}
+			// 	for (var i = 0; i < checkGoodValues.length; i++) {
+			// 		if ((document.getElementById(checkBadValues[i]).checked = true)) {
+			// 			document.getElementById(checkBadValues[i]).checked = false;
+			// 		}
+			// 		document.getElementById(checkGoodValues[i]).checked = true;
+			// 	}
+			// }
 
-			function selectAllBad() {
-				const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-				const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
-				for (var i = 0; i < checkBadValues.length; i++) {
-					if ((document.getElementById(checkGoodValues[i]).checked = true)) {
-						document.getElementById(checkGoodValues[i]).checked = false;
-					}
-					document.getElementById(checkBadValues[i]).checked = true;
-				}
-			}
+			// function selectAllBad() {
+			// 	const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
+			// 	const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
+			// 	for (var i = 0; i < checkBadValues.length; i++) {
+			// 		if ((document.getElementById(checkGoodValues[i]).checked = true)) {
+			// 			document.getElementById(checkGoodValues[i]).checked = false;
+			// 		}
+			// 		document.getElementById(checkBadValues[i]).checked = true;
+			// 	}
+			// }
 
-			function selectSomeGood(
-				selectedGoodValues,
-				checkGoodValues,
-				checkBadValues
-			) {
-				for (var i = 0; i < checkGoodValues.length; i++) {
-					var found = undefined;
-					found = checkGoodValues.find(
-						(element) => element === selectedGoodValues[i]
-					);
-					if (found != undefined) {
-						if ((document.getElementById(checkBadValues[i]).checked = true)) {
-							document.getElementById(checkBadValues[i]).checked = false;
-						}
-						document.getElementById(found).checked = true;
-					}
-				}
-			}
+			// function selectSomeGood(
+			// 	selectedGoodValues,
+			// 	checkGoodValues,
+			// 	checkBadValues
+			// ) {
+			// 	for (var i = 0; i < checkGoodValues.length; i++) {
+			// 		var found = undefined;
+			// 		found = checkGoodValues.find(
+			// 			(element) => element === selectedGoodValues[i]
+			// 		);
+			// 		if (found != undefined) {
+			// 			if ((document.getElementById(checkBadValues[i]).checked = true)) {
+			// 				document.getElementById(checkBadValues[i]).checked = false;
+			// 			}
+			// 			document.getElementById(found).checked = true;
+			// 		}
+			// 	}
+			// }
 
-			function goodAndBad() {
-				let TselectedGoodValues = ["oil-good", "whipers-good"];
-				let TselectedBadValues = ["cabin-bad"];
-				let TcheckGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-				let TcheckBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
-				for (var i = 0; i < TcheckGoodValues.length; i++) {
-					var found = undefined;
-					found = TcheckGoodValues.find(
-						(element) => element === TselectedGoodValues[i]
-					);
-					if (found != undefined) {
-						if ((document.getElementById(TcheckBadValues[i]).checked = true)) {
-							document.getElementById(TcheckBadValues[i]).checked = false;
-						}
-						document.getElementById(found).checked = true;
-					}
-				}
+			// function goodAndBad() {
+			// 	let TselectedGoodValues = ["oil-good", "whipers-good"];
+			// 	let TselectedBadValues = ["cabin-bad"];
+			// 	let TcheckGoodValues = ["oil-good", "whipers-good", "cabin-good"];
+			// 	let TcheckBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
+			// 	for (var i = 0; i < TcheckGoodValues.length; i++) {
+			// 		var found = undefined;
+			// 		found = TcheckGoodValues.find(
+			// 			(element) => element === TselectedGoodValues[i]
+			// 		);
+			// 		if (found != undefined) {
+			// 			if ((document.getElementById(TcheckBadValues[i]).checked = true)) {
+			// 				document.getElementById(TcheckBadValues[i]).checked = false;
+			// 			}
+			// 			document.getElementById(found).checked = true;
+			// 		}
+			// 	}
 
-				for (var i = 0; i < TcheckBadValues.length; i++) {
-					var found = undefined;
-					found = TcheckBadValues.find(
-						(element) => element === TselectedBadValues[i]
-					);
-					if (found != undefined) {
-						document.getElementById(found).checked = true;
-					}
-				}
-			}
+			// 	for (var i = 0; i < TcheckBadValues.length; i++) {
+			// 		var found = undefined;
+			// 		found = TcheckBadValues.find(
+			// 			(element) => element === TselectedBadValues[i]
+			// 		);
+			// 		if (found != undefined) {
+			// 			document.getElementById(found).checked = true;
+			// 		}
+			// 	}
+			// }
 		</script>
 
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 		<script
 			type="text/javascript"
 			src="https://studio.alan.app/web/lib/alan_lib.min.js"
 		></script>
-		<script>
-			var alanBtnInstance = alanBtn({
-				key: "3707a2c791104a5a428ff564ba5a7a162e956eca572e1d8b807a3e2338fdd0dc/stage",
-				onCommand: function (commandData) {
-					if (commandData.command === "everythingIsFine") {
-						console.log(commandData.theList);
-						const checkGoodValues = commandData.theList;
-						selectAllGood(checkGoodValues);
-					}
-					if (commandData.command === "everythingIsBroken") {
-						selectAllBad();
-					}
-					if (commandData.command === "sendingSomeGood") {
-						selectSomeGood(
-							commandData.theList,
-							commandData.checkGoodValues,
-							commandData.checkBadValues
-						);
-					}
-				},
-				rootEl: document.getElementById("alan-btn"),
-			});
-			var initialData;
-			var statuses;
-			var inspectionState;
-			alanBtnInstance.callProjectApi("getInitialData", {}, (err, res) => {
-				if (err) {
-					console.error(`getInitialData error:`, err);
-					return;
-				}
-				initialData = res;
-				statuses = initialData.statuses;
-				inspectionState = initialData.inspectionDefaultState;
-				console.log(`initialData: ${JSON.stringify(initialData)}`);
-			});
-		</script>
+		<script src="app.js"></script>
 	</body>
 </html>
