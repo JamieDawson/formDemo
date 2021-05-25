@@ -89,15 +89,23 @@ function createHtml() {
 			</tr>`;
 		section.elements.forEach((element, elementIndex) => {
 			html += `<tr class="elementBoxesAndName">
-			<td id="check-ok-${sectionIndex}-${elementIndex}">[${
-				isOk(element) ? "X" : "&nbsp;&nbsp;&nbsp;"
-			}]</td>
-			<td id="check-attention-${sectionIndex}-${elementIndex}">[${
-				isAttention(element) ? "X" : "&nbsp;&nbsp;&nbsp;"
-			}]</td>
-			<td id="check-problem-${sectionIndex}-${elementIndex}">[${
-				isProblem(element) ? "X" : "&nbsp;&nbsp;&nbsp;"
-			}]</td>
+
+			<td id="check-ok-${sectionIndex}-${elementIndex}">${
+				isOk(element)
+					? "<input checked type='checkbox'>"
+					: "<input type='checkbox'>"
+			}</td>
+			<td id="check-attention-${sectionIndex}-${elementIndex}">${
+				isAttention(element)
+					? "<input checked type='checkbox'>"
+					: "<input type='checkbox'>"
+			}</td>
+			<td id="check-problem-${sectionIndex}-${elementIndex}">${
+				isProblem(element)
+					? "<input checked type='checkbox'>"
+					: "<input type='checkbox'>"
+			}</td>
+
 			<td>${element.name}</td>
 			<td></td>
 		</tr>`;
