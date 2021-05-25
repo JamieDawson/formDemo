@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		html,
+		body,
+		div,
+		span,
+		applet,
+		object,
+		iframe,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		blockquote,
+		pre,
+		a,
+		abbr,
+		acronym,
+		address,
+		big,
+		cite,
+		code,
+		del,
+		dfn,
+		em,
+		img,
+		ins,
+		kbd,
+		q,
+		s,
+		samp,
+		small,
+		strike,
+		strong,
+		sub,
+		sup,
+		tt,
+		var,
+		b,
+		u,
+		i,
+		center,
+		dl,
+		dt,
+		dd,
+		ol,
+		ul,
+		li,
+		fieldset,
+		form,
+		label,
+		legend,
+		table,
+		caption,
+		tbody,
+		tfoot,
+		thead,
+		tr,
+		th,
+		td,
+		article,
+		aside,
+		canvas,
+		details,
+		embed,
+		figure,
+		figcaption,
+		footer,
+		header,
+		hgroup,
+		menu,
+		nav,
+		output,
+		ruby,
+		section,
+		summary,
+		time,
+		mark,
+		audio,
+		video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+
+		/* HTML5 display-role reset for older browsers */
+		article,
+		aside,
+		details,
+		figcaption,
+		figure,
+		footer,
+		header,
+		hgroup,
+		menu,
+		nav,
+		section {
+			display: block;
+		}
+
+		body {
+			line-height: 1;
+		}
+
+		ol,
+		ul {
+			list-style: none;
+		}
+
+		blockquote,
+		q {
+			quotes: none;
+		}
+
+		blockquote:before,
+		blockquote:after,
+		q:before,
+		q:after {
+			content: '';
+			content: none;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+	</style>
+	<style>
+		#divLeft {
+			background-color: green;
+			max-width: 30px;
+			float: left;
+			padding-top: 0%;
+		}
+
+
+
+		body {
+			background-color: rgb(251, 241, 229);
+		}
+
+		.sectionNameClass {
+			width: 250px;
+			height: 10px;
+			background-color: black;
+			color: white;
+			font-size: 20px;
+			text-align: center;
+			position: relative;
+		}
+
+		p {
+			font-weight: bold;
+		}
+
+		.elementBoxesAndName {
+			color: black;
+		}
+
+		#check-ok-0-0 {
+			background-color: green;
+		}
+
+		#check-ok-0-1 {
+			background-color: green;
+		}
+
+		#check-ok-1-0 {
+			background-color: green;
+		}
+
+		#check-ok-1-1 {
+			background-color: green;
+		}
+
+		#check-attention-0-0 {
+			background-color: yellow;
+		}
+
+		#check-attention-0-1 {
+			background-color: yellow;
+		}
+
+		#check-attention-1-0 {
+			background-color: yellow;
+		}
+
+		#check-attention-1-1 {
+			background-color: yellow;
+		}
+
+		#check-problem-0-0 {
+			background-color: red;
+		}
+
+		#check-problem-0-1 {
+			background-color: red;
+		}
+
+		#check-problem-1-0 {
+			background-color: red;
+		}
+
+		#check-problem-1-1 {
+			background-color: red;
+		}
+
+		.wrapper {
+			position: relative;
+			width: 200px;
+			height: 80px;
+			border: 1px solid #000;
+			background-color: green;
+		}
+
+		.div-1 {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+
+			background-color: green;
+		}
+
+		.div-2 {
+			position: absolute;
+			top: 40px;
+			left: 40px;
+			width: 160px;
+			height: 40px;
+			background-color: yellow;
+		}
+
+		.div-3 {
+			position: absolute;
+			top: 60px;
+			left: 60px;
+			background-color: red;
+		}
+
+		.green {
+			background-color: green;
+		}
+
+		.yellow {
+			background-color: yellow;
+		}
+
+		.red {
+			background-color: red;
+		}
+
+		.square {
+			min-height: 23px;
+			min-width: 23px;
+		}
+
+		td {
+			padding-top: 2px;
+			padding-bottom: 2px;
+		}
+	</style>
+</head>
+<div class="alan-btn"></div>
+
+<body>
+	<div id="all">
+		<h1>Demo Dealer Socket form</h1>
+
+
+
+		<!-- <div id="divLeft">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> -->
+
+		<!-- <div class="wrapper">
+			<div class="div-1">Checked and okay</div>
+			<div class="div-2">May require attn.</div>
+			<div class="div-3">Requires Immed. Attn</div>
+		</div> -->
+
+		<table>
+			<tr>
+				<td class="square green"></td>
+				<td style="padding-left:24px;" class="green" colspan="6">Checked and okay</td>
+			</tr>
+			<tr>
+				<td class="square green"></td>
+				<td style="padding-left:48px;" colspan="5" class="yellow">May require attn.</td>
+			</tr>
+			<tr>
+				<td class="square green"></td>
+				<td class="square yellow"></td>
+				<td style="padding-left:36px;" class="red" colspan="4">Requires Immed. Attn</td>
+			</tr>
+		</table>
+
+		<div id="main"></div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+	<script src="app.js"></script>
+
+
+</body>
+
+</html>
