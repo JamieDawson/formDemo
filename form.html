@@ -2,8 +2,22 @@
 <html>
 	<div class="alan-btn"></div>
 	<body>
+		<div id="all"> 
 		<h1>Demo Dealer Socket form</h1>
+
+
+
+		<div id="divLeft">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+		<div>Checked and okay</div><br />
+		<div id="divLeft">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+		<div>May require attn.</div></br />
+		<div id="divLeft">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+		<div>Requires Immed. Attn</div>
+		
+
 		<div id="main"></div>
+	</div>
 
 		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 		<script
@@ -11,7 +25,21 @@
 			src="https://studio.alan.app/web/lib/alan_lib.min.js"
 		></script>
 		<script src="app.js"></script>
+
 		<style>
+		#divLeft {
+			background-color: green;
+			max-width: 30px;
+			float: left;
+			padding-top: 0%;
+		}
+
+
+
+			body {
+				background-color: rgb(251, 241, 229);
+			}
+
 			.sectionNameClass {
 				width: 250px;
 				height: 10px;
@@ -22,6 +50,10 @@
 				position: relative;
 			}
 
+			p {
+				font-weight: bold;
+			}
+
 			.elementBoxesAndName {
 				color: black;
 			}
@@ -29,19 +61,15 @@
 			#check-ok-0-0 {
 				background-color: green;
 			}
-
 			#check-ok-0-1 {
 				background-color: green;
 			}
-
 			#check-ok-1-0 {
 				background-color: green;
 			}
-
 			#check-ok-1-1 {
 				background-color: green;
 			}
-
 			#check-attention-0-0 {
 				background-color: yellow;
 			}
@@ -54,7 +82,6 @@
 			#check-attention-1-1 {
 				background-color: yellow;
 			}
-
 			#check-problem-0-0 {
 				background-color: red;
 			}
