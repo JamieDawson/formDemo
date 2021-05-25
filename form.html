@@ -4,124 +4,6 @@
 	<body>
 		<h1>Demo Dealer Socket form</h1>
 		<div id="main"></div>
-		<table>
-			<tr>
-				<th>Firstname</th>
-				<th>Lastname</th>
-				<th>Age</th>
-				<th>Age</th>
-				<th>Age</th>
-			</tr>
-			<tr>
-				<td id="ok-element" section="Oil" element="Filter">|X|</td>
-				<td>| |</td>
-				<td>| |</td>
-				<td>Smith</td>
-				<td>50</td>
-			</tr>
-			<tr>
-				<td>| |</td>
-				<td>| |</td>
-				<td>| |</td>
-				<td>Eve</td>
-				<td>Jackson</td>
-				<td>94</td>
-			</tr>
-		</table>
-
-		<!-- <form>
-			<input type="checkbox" id="oil-good" name="oil" value="oil" />
-			<input type="checkbox" id="oil-bad" name="oil" value="oil" />
-			<label for="oil"> Oil Change</label><br />
-			<input type="checkbox" id="whipers-good" name="whipers" value="whipers" />
-			<input type="checkbox" id="whipers-bad" name="whipers" value="whipers" />
-			<label for="whipers"> Whipers</label><br />
-			<input type="checkbox" id="cabin-good" name="cabin" value="cabin air" />
-			<input type="checkbox" id="cabin-bad" name="cabin" value="cabin air" />
-			<label for="cabin"> Cabin Air</label><br /><br />
-		</form> -->
-
-		<!-- <button onclick="selectOne()">Select one</button>
-		<button onclick="selectAllGood()">Select all good</button>
-		<button onclick="selectAllBad()">Select all bad</button>
-		<button onclick="goodAndBad()">Select good and bad option</button> -->
-
-		<script>
-			// function selectOne() {
-			// 	document.getElementById("oil-good").checked = true;
-			// }
-
-			// function selectAllGood(checkGoodValues) {
-			// 	//const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-			// 	const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
-
-			// 	for (var i = 0; i < checkGoodValues.length; i++) {
-			// 		if ((document.getElementById(checkBadValues[i]).checked = true)) {
-			// 			document.getElementById(checkBadValues[i]).checked = false;
-			// 		}
-			// 		document.getElementById(checkGoodValues[i]).checked = true;
-			// 	}
-			// }
-
-			// function selectAllBad() {
-			// 	const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-			// 	const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
-			// 	for (var i = 0; i < checkBadValues.length; i++) {
-			// 		if ((document.getElementById(checkGoodValues[i]).checked = true)) {
-			// 			document.getElementById(checkGoodValues[i]).checked = false;
-			// 		}
-			// 		document.getElementById(checkBadValues[i]).checked = true;
-			// 	}
-			// }
-
-			// function selectSomeGood(
-			// 	selectedGoodValues,
-			// 	checkGoodValues,
-			// 	checkBadValues
-			// ) {
-			// 	for (var i = 0; i < checkGoodValues.length; i++) {
-			// 		var found = undefined;
-			// 		found = checkGoodValues.find(
-			// 			(element) => element === selectedGoodValues[i]
-			// 		);
-			// 		if (found != undefined) {
-			// 			if ((document.getElementById(checkBadValues[i]).checked = true)) {
-			// 				document.getElementById(checkBadValues[i]).checked = false;
-			// 			}
-			// 			document.getElementById(found).checked = true;
-			// 		}
-			// 	}
-			// }
-
-			// function goodAndBad() {
-			// 	let TselectedGoodValues = ["oil-good", "whipers-good"];
-			// 	let TselectedBadValues = ["cabin-bad"];
-			// 	let TcheckGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-			// 	let TcheckBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
-			// 	for (var i = 0; i < TcheckGoodValues.length; i++) {
-			// 		var found = undefined;
-			// 		found = TcheckGoodValues.find(
-			// 			(element) => element === TselectedGoodValues[i]
-			// 		);
-			// 		if (found != undefined) {
-			// 			if ((document.getElementById(TcheckBadValues[i]).checked = true)) {
-			// 				document.getElementById(TcheckBadValues[i]).checked = false;
-			// 			}
-			// 			document.getElementById(found).checked = true;
-			// 		}
-			// 	}
-
-			// 	for (var i = 0; i < TcheckBadValues.length; i++) {
-			// 		var found = undefined;
-			// 		found = TcheckBadValues.find(
-			// 			(element) => element === TselectedBadValues[i]
-			// 		);
-			// 		if (found != undefined) {
-			// 			document.getElementById(found).checked = true;
-			// 		}
-			// 	}
-			// }
-		</script>
 
 		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 		<script
@@ -129,5 +11,62 @@
 			src="https://studio.alan.app/web/lib/alan_lib.min.js"
 		></script>
 		<script src="app.js"></script>
+		<style>
+			.sectionNameClass {
+				width: 250px;
+				height: 10px;
+				background-color: black;
+				color: white;
+				font-size: 20px;
+				text-align: center;
+				position: relative;
+			}
+
+			.elementBoxesAndName {
+				color: black;
+			}
+
+			#check-ok-0-0 {
+				background-color: green;
+			}
+
+			#check-ok-0-1 {
+				background-color: green;
+			}
+
+			#check-ok-1-0 {
+				background-color: green;
+			}
+
+			#check-ok-1-1 {
+				background-color: green;
+			}
+
+			#check-attention-0-0 {
+				background-color: yellow;
+			}
+			#check-attention-0-1 {
+				background-color: yellow;
+			}
+			#check-attention-1-0 {
+				background-color: yellow;
+			}
+			#check-attention-1-1 {
+				background-color: yellow;
+			}
+
+			#check-problem-0-0 {
+				background-color: red;
+			}
+			#check-problem-0-1 {
+				background-color: red;
+			}
+			#check-problem-1-0 {
+				background-color: red;
+			}
+			#check-problem-1-1 {
+				background-color: red;
+			}
+		</style>
 	</body>
 </html>

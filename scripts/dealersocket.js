@@ -1,50 +1,38 @@
-// Use this sample to create your own voice commands
-const checkGoodValues = ["oil-good", "whipers-good", "cabin-good"];
-const checkBadValues = ["oil-bad", "whipers-bad", "cabin-bad"];
-const basicValues = ["oil", "whipers", "cabin"];
+const data = project.data;
 
-onCreateProject(() => {
-	project.ALLVALUES = "oil|whipers|cabin";
+onCreateUser((p) => {
+	p.userData.state = _.cloneDeep(data);
 });
 
-function findGoodItems(items) {
-	console.log("findGoodItems: " + items);
-	let pushedGoodValues = [];
-	for (var i = 0; i < basicValues.length; i++) {
-		if (basicValues.includes(items[i].value)) {
-			//console.log(basicValues.findIndex(items[i].value))
-			const indexHere = basicValues.findIndex(
-				(goodValue) => goodValue === items[i].value
-			);
-			console.log("indexHERE: " + indexHere);
-			pushedGoodValues.push(checkGoodValues[indexHere]);
-		}
-	}
-	return pushedGoodValues;
-}
+const elementPattern = _(data.inspectionDefaultState.sections)
+	.map((s) => s.elements)
+	.flatten()
+	.map((e) => e.alternatives.map((a) => a + "~" + e.name))
+	.flatten()
+	.join("|");
 
-intent(
-	`$(B p:ALLVALUES) $(B p:ALLVALUES) and $(B p:ALLVALUES|) are good`,
-	(p) => {
-		//console.log("Good values: " + p.B_[1]);
-		let foundGoodValues = findGoodItems(p.B_);
-		console.log("foundGoodValues DONE: " + foundGoodValues);
-		p.play({
-			command: "sendingSomeGood",
-			theList: foundGoodValues,
-			checkGoodValues: checkGoodValues,
-			checkBadValues: checkBadValues,
-		});
-		p.play("Sending this");
-	}
-);
+const statusPattern = _(data.statuses)
+	.map((s) => s.alternatives.map((a) => a + "~" + s.value))
+	.flatten()
+	.join("|");
 
-intent("Everything is fine", (p) => {
-	p.play({ command: "everythingIsFine", theList: checkGoodValues });
-	p.play("Glad to hear it! I clicked all the green boxes!");
+console.log(`project.elements: ${JSON.stringify(project.elementPattern)}`);
+
+intent(`$(ELEMENT ${elementPattern}) is $(STATUS ${statusPattern})`, (p) => {
+	console.log(`p.ELEMENT.value: ${p.ELEMENT.value}`);
+	console.log(`p.ELEMENT.label: ${p.ELEMENT.label}`);
+	console.log(`p.STATUS.value: ${p.STATUS.value}`);
+	console.log(`p.STATUS.label: ${p.STATUS.label}`);
+	const element = _(p.userData.state.inspectionDefaultState.sections)
+		.map((s) => s.elements)
+		.flatten()
+		.filter((e) => e.name == p.ELEMENT.label)
+		.first();
+	element.status = p.STATUS.label;
+	p.play({ state: p.userData.state });
+	p.play(`setting ${p.ELEMENT.label} to ${p.STATUS.label}`);
 });
 
-intent("Everything is broken", (p) => {
-	p.play({ command: "everythingIsBroken" });
-	p.play("Sorry to hear that! I clicked all the red boxes!");
-});
+projectAPI.getInitialData = (p, param, callback) => {
+	callback(null, p.userData.state);
+};

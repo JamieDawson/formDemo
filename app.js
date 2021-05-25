@@ -4,27 +4,14 @@ var alanBtnInstance = alanBtn({
 		if (commandData.state) {
 			initStateAndRerender(commandData.state);
 		}
-		// if (commandData.command === "everythingIsFine") {
-		// 	console.log(commandData.theList);
-		// 	const checkGoodValues = commandData.theList;
-		// 	selectAllGood(checkGoodValues);
-		// }
-		// if (commandData.command === "everythingIsBroken") {
-		// 	selectAllBad();
-		// }
-		// if (commandData.command === "sendingSomeGood") {
-		// 	selectSomeGood(
-		// 		commandData.theList,
-		// 		commandData.checkGoodValues,
-		// 		commandData.checkBadValues
-		// 	);
-		// }
 	},
 	rootEl: document.getElementById("alan-btn"),
 });
+
 var initialData;
 var statuses;
 var inspectionState;
+
 alanBtnInstance.callProjectApi("getInitialData", {}, (err, res) => {
 	if (err) {
 		console.error(`getInitialData error:`, err);
@@ -98,18 +85,18 @@ function createHtml() {
 	inspectionState.sections.forEach((section, sectionIndex) => {
 		console.log(`section.name: ${section.name}`);
 		html += `<tr>
-				<td colspan="5">${section.name}</td>
+				<td class="sectionNameClass" colspan="5"><p>${section.name}</p></td>
 			</tr>`;
 		section.elements.forEach((element, elementIndex) => {
-			html += `<tr>
+			html += `<tr class="elementBoxesAndName">
 			<td id="check-ok-${sectionIndex}-${elementIndex}">[${
-				isOk(element) ? "X" : " "
+				isOk(element) ? "X" : "&nbsp;&nbsp;&nbsp;"
 			}]</td>
 			<td id="check-attention-${sectionIndex}-${elementIndex}">[${
-				isAttention(element) ? "X" : " "
+				isAttention(element) ? "X" : "&nbsp;&nbsp;&nbsp;"
 			}]</td>
 			<td id="check-problem-${sectionIndex}-${elementIndex}">[${
-				isProblem(element) ? "X" : " "
+				isProblem(element) ? "X" : "&nbsp;&nbsp;&nbsp;"
 			}]</td>
 			<td>${element.name}</td>
 			<td></td>
